@@ -1,8 +1,11 @@
 from pybedtools import BedTool
 import numpy as np
+import matplotlib.pyplot as plt
 
 with open('/mnt/disks/data-bam-tumor/Homo_sapiens_assembly19.fasta.fai','r') as f:
     chromosomes = {line.split('\t')[0]:int(line.split('\t')[1]) for line in f.readlines()[0:25]}
+
+print chromosomes
 
 chrom_Intervals = {k:np.append(np.arange(0,chromosomes[k],10000),chromosomes[k]) for k in chromosomes.keys()}
 
@@ -17,3 +20,5 @@ print a.head()
 print b.head()
 
 a.coverage(b,hist=True).saveas('VCFCoverage.bed')
+
+#for k in chromosomes.keys():
