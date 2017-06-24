@@ -1,7 +1,9 @@
 from pybedtools import BedTool
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 from collections import defaultdict
+matplotlib.use('Agg')
 
 with open('/mnt/disks/data-bam-tumor/Homo_sapiens_assembly19.fasta.fai','r') as f:
     chromosomes = {line.split('\t')[0]:int(line.split('\t')[1]) for line in f.readlines()[0:24]}
