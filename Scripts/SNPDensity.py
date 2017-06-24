@@ -15,9 +15,9 @@ for k in chromosomes.keys():
 
 with open('humanBedInterval.bed','w') as f:
     for k in chromosomes.keys():
-        f.write('\n'.join('\n'.join('%s\t%d\t%d'%(k,chrom_Intervals[k][i],chrom_Intervals[k][i+1]-1) for i in range(len(chrom_Intervals[k])-1)) for k in chromosomes.keys())+'\n')
+        f.write('\n'.join('%s\t%d\t%d'%(k,chrom_Intervals[k][i],chrom_Intervals[k][i+1]-1) for i in range(len(chrom_Intervals[k])-1)) +'\n')
 
-a = BedTool('humanBedInterval.bed')
+a = BedTool('humanBedInterval.bed').sort()
 b = BedTool('/mnt/disks/data-vcf/GSN79Tumor_normal.vcf')
 print a.head()
 print b.head()
