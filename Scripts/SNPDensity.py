@@ -12,9 +12,10 @@ chrom_Intervals = {k:np.append(np.arange(0,chromosomes[k],10000),chromosomes[k])
 for k in chromosomes.keys():
     print chrom_Intervals[k][0:10]
 
+
 with open('humanBedInterval.bed','w') as f:
     for k in chromosomes.keys():
-        f.write('\n'.join('%s\t%d\t%d'%(k,chrom_Intervals[i],chrom_Intervals[i+1]-1) for i in range(len(chrom_Intervals)-1))+'\n')
+        f.write('\n'.join('\n'.join('%s\t%d\t%d'%(k,chrom_Intervals[k][i],chrom_Intervals[k][i+1]-1) for i in range(len(chrom_Intervals[k])-1)) for k in chromosomes.keys())+'\n')
 
 a = BedTool('humanBedInterval.bed')
 b = BedTool('/mnt/disks/data-vcf/GSN79Tumor_normal.vcf')
