@@ -22,6 +22,6 @@ b = BedTool('/mnt/disks/data-vcf/GSN79Tumor_normal.vcf')
 print a.head()
 print b.head()
 
-a.coverage(b,hist=True).saveas('VCFCoverage.bed')
+a.coverage(b).saveas('VCFCoverage.bed')#,hist=True
 
 #for k in chromosomes.keys():
