@@ -57,8 +57,8 @@
       <file leaf-file-name="generateTensor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5958084">
-              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.7754491">
+              <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -421,12 +421,6 @@
       <option name="number" value="Default" />
       <updated>1498192442039</updated>
     </task>
-    <task id="LOCAL-00004" summary="mod SNP prog&#10;">
-      <created>1498325682251</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1498325682251</updated>
-    </task>
     <task id="LOCAL-00005" summary="mod SNP prog&#10;">
       <created>1498325946606</created>
       <option name="number" value="00005" />
@@ -715,7 +709,13 @@
       <option name="project" value="LOCAL" />
       <updated>1498428446531</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Dataset creation for sci-kit learn">
+      <created>1498428606930</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1498428606930</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -848,8 +848,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5958084">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.7754491">
+          <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
