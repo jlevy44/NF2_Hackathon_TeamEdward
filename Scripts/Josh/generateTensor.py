@@ -29,10 +29,10 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                         f.write('Gene Name: ' + geneNaming + '\n')
                         densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
                         try:
-                            densitySNP = np.vectorize(lambda line: float(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['SNP'])).split('\n'))
+                            densitySNP = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['SNP'])).split('\n')))
                         except:
                             print str(densityBedInt.coverage(testTrain['SNP'])).split('\n')
-                        densityIndel = np.vectorize(lambda line: float(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['indel'])).split('\n'))
+                        densityIndel = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['indel'])).split('\n')))
                         dataset['SNP'][geneNaming] = densitySNP
                         dataset['indel'][geneNaming] = densityIndel
     return dataset
