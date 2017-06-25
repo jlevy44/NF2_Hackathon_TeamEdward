@@ -43,6 +43,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                         dataset['indel'][geneNaming] = densityIndel
                         #f.write(geneNaming+'\n')
         #f.write('FINISH 1\n')#testTrain['SNP'].head()
+    else:
         for gene in genes:
             print gene
             if gene and gene.startswith('1\t') or gene.startswith('22\t'):
