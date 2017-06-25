@@ -1,7 +1,8 @@
 import numpy as np
 from pybedtools import BedTool
 from collections import defaultdict
-from cPickle import *
+#from cPickle import *
+from pickle import *
 from random import randrange
 import sys
 # Test data
