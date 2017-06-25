@@ -13,7 +13,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
             if gene:
                 geneInfo = gene.split('\t')
                 interval = map(int,geneInfo[1:3])
-                f.write('\t'.join([geneInfo[0]]+interval)+'\n')
+                f.write('\t'.join([geneInfo[0]]+geneInfo[1:3])+'\n')
                 #bin1 = np.arange(interval[0],interval[1],100)
                 #bin2 = np.arange(interval[0]+50,interval[1],100)
                 #geneBed = BedTool(gene,from_string=True)
