@@ -31,7 +31,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                             dataset['SNP'][geneNaming] = densitySNP
                             dataset['indel'][geneNaming] = densityIndel
                 except:
-                    f.write(gene+' Error:'+sys.exc_info()[0]+'\n')
+                    f.write(gene+' Error:'+str(sys.exc_info()[0])+'\n')
     return dataset
 
 
