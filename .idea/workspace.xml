@@ -57,8 +57,8 @@
       <file leaf-file-name="generateTensor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5131579">
-              <caret line="30" column="77" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.8684211">
+              <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -673,7 +673,13 @@
       <option name="project" value="LOCAL" />
       <updated>1498425720883</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Dataset creation for sci-kit learn">
+      <created>1498426796891</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1498426796891</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -806,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5131579">
-          <caret line="30" column="77" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.8684211">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

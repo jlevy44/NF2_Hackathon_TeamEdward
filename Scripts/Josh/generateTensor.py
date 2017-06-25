@@ -45,6 +45,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                             densityIndel = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['indel'])).split('\n')))
                             dataset['SNP'][geneNaming] = densitySNP
                             dataset['indel'][geneNaming] = densityIndel
+                            print dataset
                             #f.write(geneNaming+'\n')
             except:
                 pass
