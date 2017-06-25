@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e47caee-2e62-4f6f-beb0-f4c4317e0d39" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/Josh/formatBedGenes.py" afterPath="$PROJECT_DIR$/Scripts/Josh/formatBedGenes.py" />
     </list>
     <ignored path="NF2_Hackathon_TeamEdward.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/Scripts/Josh/formatBedGenes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.14742015">
-              <caret line="4" column="115" selection-start-line="4" selection-start-column="115" selection-end-line="4" selection-end-column="115" />
+              <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -450,7 +449,13 @@
       <option name="project" value="LOCAL" />
       <updated>1498352649233</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="mod SNP prog&#10;">
+      <created>1498352808481</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1498352808481</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -557,7 +562,7 @@
     <entry file="file://$PROJECT_DIR$/Scripts/Josh/formatBedGenes.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14742015">
-          <caret line="4" column="115" selection-start-line="4" selection-start-column="115" selection-end-line="4" selection-end-column="115" />
+          <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
           <folding />
         </state>
       </provider>
