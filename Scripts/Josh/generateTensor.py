@@ -6,7 +6,7 @@ from cPickle import *
 
 
 def genDataset(genes,testTrain): # second argument is test or train bed dictionary
-    dataset = {'SNP':OrderedDict(list),'indel':OrderedDict(list)}
+    dataset = {'SNP':defaultdict(list),'indel':defaultdict(list)}
     for gene in genes:
         if gene:
             try:

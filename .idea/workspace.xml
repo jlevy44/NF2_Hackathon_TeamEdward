@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e47caee-2e62-4f6f-beb0-f4c4317e0d39" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Scripts/Josh/defaultOrderedDict.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/Josh/generateTensor.py" afterPath="$PROJECT_DIR$/Scripts/Josh/generateTensor.py" />
     </list>
@@ -57,8 +58,8 @@
       <file leaf-file-name="generateTensor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4054054">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.2948403">
+              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -116,6 +117,7 @@
         <option value="$PROJECT_DIR$/Scripts/Josh/tensor_tutorial.py" />
         <option value="$PROJECT_DIR$/Scripts/Josh/formatBedGenes.py" />
         <option value="$PROJECT_DIR$/Scripts/Josh/MLgeneID.py" />
+        <option value="$PROJECT_DIR$/Scripts/Josh/defaultOrderedDict.py" />
         <option value="$PROJECT_DIR$/Scripts/Josh/generateTensor.py" />
       </list>
     </option>
@@ -498,7 +500,13 @@
       <option name="project" value="LOCAL" />
       <updated>1498365527886</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Dataset creation for sci-kit learn">
+      <created>1498411885672</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1498411885672</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -541,7 +549,8 @@
     <MESSAGE value="mod SNP prog&#10;" />
     <MESSAGE value="Added Tensorflow/scipy support for data set" />
     <MESSAGE value="updates tensor creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates tensor creation" />
+    <MESSAGE value="Dataset creation for sci-kit learn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dataset creation for sci-kit learn" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -620,10 +629,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/Josh/defaultOrderedDict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2997543">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4054054">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.2948403">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
