@@ -8,12 +8,12 @@ import sys
 
 def genDataset(genes,testTrain): # second argument is test or train bed dictionary
     dataset = {'SNP':defaultdict(list),'indel':defaultdict(list)}
-    with open('Error.txt','w') as f:
+    with open('out.txt','w') as f:
         for gene in genes:
             if gene:
                 geneInfo = gene.split('\t')
                 interval = map(int,geneInfo[1:3])
-                print geneInfo[0],interval
+                f.write('\t'.join([geneInfo[0]]+interval)+'\n')
                 #bin1 = np.arange(interval[0],interval[1],100)
                 #bin2 = np.arange(interval[0]+50,interval[1],100)
                 #geneBed = BedTool(gene,from_string=True)
@@ -25,22 +25,22 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                 for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
                     for i in range(len(bin)-1):
                         interval = bin[i:i+2]
-                        geneNaming = geneInfo[3]+'|'+'-'.join(map(str,interval))#geneInfo[0:3]
+                        geneNaming = geneInfo[3].strip('\n')+'|'+'-'.join(map(str,interval))#geneInfo[0:3]
                         f.write('Gene Name: ' + geneNaming + '\n')
-                        try:
-                            densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
-                        except:
-                            print '\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5)))
+                        #try:
+                        densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
+                        #except:
+                        #    print '\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5)))
 
-                        try:
-                            densitySNP = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['SNP'])).split('\n')))
-                        except:
-                            print str(densityBedInt.coverage(testTrain['SNP'])).split('\n')
+                        #try:
+                        densitySNP = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['SNP'])).split('\n')))
+                        #except:
+                        #    print str(densityBedInt.coverage(testTrain['SNP'])).split('\n')
                         densityIndel = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['indel'])).split('\n')))
                         dataset['SNP'][geneNaming] = densitySNP
                         dataset['indel'][geneNaming] = densityIndel
-                        print geneNaming
-    print 'FINISH 1'#testTrain['SNP'].head()
+                        f.write(geneNaming+'\n')
+    f.write('FINISH 1\n')#testTrain['SNP'].head()
     return dataset
 
 
