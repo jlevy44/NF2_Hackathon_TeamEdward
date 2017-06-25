@@ -9,11 +9,11 @@ import sys
 
 def genDataset(genes,testTrain): # second argument is test or train bed dictionary
     dataset = {'SNP':defaultdict(list),'indel':defaultdict(list)}
-    random_index = randrange(0,len(genes))
+    #random_index = randrange(0,len(genes))
     #with open('out.txt','w') as f:
     if len(genes) > 1:
-        for i in random_index[0:11]:
-            gene = genes[i]
+        for gene in genes[300:500:20]:#random_index[0:11]:
+            #gene = genes[i]
             print gene
             if gene and gene.startswith('1\t') or gene.startswith('22\t'):
                 geneInfo = gene.split('\t')
