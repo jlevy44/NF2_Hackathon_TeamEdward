@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e47caee-2e62-4f6f-beb0-f4c4317e0d39" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Scripts/Josh/MLgeneID.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/Josh/generateTensor.py" afterPath="$PROJECT_DIR$/Scripts/Josh/generateTensor.py" />
     </list>
@@ -58,8 +57,8 @@
       <file leaf-file-name="generateTensor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1891892">
-              <caret line="34" column="74" selection-start-line="34" selection-start-column="74" selection-end-line="34" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.4054054">
+              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -122,8 +121,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
-    <option name="y" value="142" />
+    <option name="x" value="-87" />
+    <option name="y" value="141" />
     <option name="width" value="1280" />
     <option name="height" value="740" />
   </component>
@@ -493,11 +492,17 @@
       <option name="project" value="LOCAL" />
       <updated>1498360829589</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="updates tensor creation">
+      <created>1498365527886</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1498365527886</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="142" width="1280" height="740" extended-state="0" />
+    <frame x="-87" y="141" width="1280" height="740" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -535,7 +540,8 @@
     <MESSAGE value="Add SNPDensity program&#10;" />
     <MESSAGE value="mod SNP prog&#10;" />
     <MESSAGE value="Added Tensorflow/scipy support for data set" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Tensorflow/scipy support for data set" />
+    <MESSAGE value="updates tensor creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates tensor creation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -616,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/Josh/generateTensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1891892">
-          <caret line="34" column="74" selection-start-line="34" selection-start-column="74" selection-end-line="34" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.4054054">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

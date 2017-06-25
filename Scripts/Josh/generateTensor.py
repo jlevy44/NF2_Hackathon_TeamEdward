@@ -1,27 +1,33 @@
 import numpy as np
 from pybedtools import BedTool
-from collections import defaultdict
+from collections import defaultdict,OrderedDict
 from cPickle import *
 # Test data
 
 
 def genDataset(genes,testTrain): # second argument is test or train bed dictionary
-    dataset = defaultdict(list)
+    dataset = {'SNP':OrderedDict(list),'indel':OrderedDict(list)}
     for gene in genes:
         if gene:
             try:
                 geneInfo = gene.split('\t')
-                geneNaming = geneInfo[3]+'|'+'-'.join(geneInfo[0:3])
                 interval = map(int,geneInfo[1:3])
+                #bin1 = np.arange(interval[0],interval[1],100)
+                #bin2 = np.arange(interval[0]+50,interval[1],100)
                 #geneBed = BedTool(gene,from_string=True)
                 #SNPtest = testTrain['SNP'].intersect(geneBed,wa=True)
                 #indelTest = testTrain['indel'].intersect(geneBed,wa=True)
                 #snpDensity = []
                 #indelDensity = []
-                densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
-                densitySNP = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['SNP'])).split('\n'))
-                densityIndel = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['indel'])).split('\n'))
-                dataset[geneNaming] = [densitySNP,densityIndel]
+                for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
+                    for i in range(len(bin)):
+                        interval = bin[i:i+2]
+                        geneNaming = geneInfo[3]+'|'+'-'.join(map(str,interval))#geneInfo[0:3]
+                        densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
+                        densitySNP = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['SNP'])).split('\n'))
+                        densityIndel = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['indel'])).split('\n'))
+                        dataset['SNP'][geneNaming] = densitySNP
+                        dataset['indel'][geneNaming] = densityIndel
             except:
                 print gene
     return dataset
@@ -40,6 +46,7 @@ trainGenes = BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(tra
 with open('trainGenes.bed','r') as f:
     genes = f.readlines()
 #generate training data set
+
 dump(genDataset(genes,trainBed),open('trainData.p','wb'))
 
 
