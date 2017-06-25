@@ -10,7 +10,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
     dataset = {'SNP':defaultdict(list),'indel':defaultdict(list)}
     #with open('out.txt','w') as f:
     for gene in genes:
-        if gene:
+        if gene and gene.startswith('1'):
             geneInfo = gene.split('\t')
             interval = map(int,geneInfo[1:3])
             #f.write('\t'.join([geneInfo[0]]+geneInfo[1:3])+'\n')
@@ -52,7 +52,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
 trainBed = {'SNP':BedTool('train_SNP.bed'),'indel':BedTool('train_indel.bed')}
 testBed = {'SNP':BedTool('test_SNP.bed'),'indel':BedTool('test_indel.bed')}
 
-BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).sort().merge(c=4,o='distinct').saveas('human_genes_Check.bed')
+BedTool('human_genes.bed').sort().intersect(testBed['SNP'].cat(testBed['indel']),wa=True).sort().merge(c=4,o='distinct').saveas('human_genes_Check.bed')
 trainGenes = BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).sort().merge(c=4,o='distinct').saveas('trainGenes.bed')
 
 with open('trainGenes.bed','r') as f:
