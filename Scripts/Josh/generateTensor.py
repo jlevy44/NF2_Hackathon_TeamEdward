@@ -11,27 +11,26 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
     with open('Error.txt','w') as f:
         for gene in genes:
             if gene:
-                try:
-                    geneInfo = gene.split('\t')
-                    interval = map(int,geneInfo[1:3])
-                    #bin1 = np.arange(interval[0],interval[1],100)
-                    #bin2 = np.arange(interval[0]+50,interval[1],100)
-                    #geneBed = BedTool(gene,from_string=True)
-                    #SNPtest = testTrain['SNP'].intersect(geneBed,wa=True)
-                    #indelTest = testTrain['indel'].intersect(geneBed,wa=True)
-                    #snpDensity = []
-                    #indelDensity = []
-                    for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
-                        for i in range(len(bin)):
-                            interval = bin[i:i+2]
-                            geneNaming = geneInfo[3]+'|'+'-'.join(map(str,interval))#geneInfo[0:3]
-                            densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
-                            densitySNP = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['SNP'])).split('\n'))
-                            densityIndel = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['indel'])).split('\n'))
-                            dataset['SNP'][geneNaming] = densitySNP
-                            dataset['indel'][geneNaming] = densityIndel
-                except:
-                    f.write(gene+' Error:'+str(sys.exc_info()[0])+'\n')
+                geneInfo = gene.split('\t')
+                interval = map(int,geneInfo[1:3])
+                #bin1 = np.arange(interval[0],interval[1],100)
+                #bin2 = np.arange(interval[0]+50,interval[1],100)
+                #geneBed = BedTool(gene,from_string=True)
+                #SNPtest = testTrain['SNP'].intersect(geneBed,wa=True)
+                #indelTest = testTrain['indel'].intersect(geneBed,wa=True)
+                #snpDensity = []
+                #indelDensity = []
+                print [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]
+                for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
+                    for i in range(len(bin)):
+                        interval = bin[i:i+2]
+                        geneNaming = geneInfo[3]+'|'+'-'.join(map(str,interval))#geneInfo[0:3]
+                        f.write('Gene Name: ' + geneNaming + '\n')
+                        densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
+                        densitySNP = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['SNP'])).split('\n'))
+                        densityIndel = np.vectorize(lambda line: int(line.split('\t')[-1]))(str(densityBedInt.coverage(testTrain['indel'])).split('\n'))
+                        dataset['SNP'][geneNaming] = densitySNP
+                        dataset['indel'][geneNaming] = densityIndel
     return dataset
 
 
@@ -49,7 +48,9 @@ with open('trainGenes.bed','r') as f:
     genes = f.readlines()
 #generate training data set
 
-dump(genDataset(genes,trainBed),open('trainData.p','wb'))
+trainData = genDataset(genes,trainBed)
+
+dump(trainData,open('trainData.p','wb'))
 
 
 
