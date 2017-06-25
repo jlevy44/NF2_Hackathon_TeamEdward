@@ -22,11 +22,12 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                 #snpDensity = []
                 #indelDensity = []
                 print [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]
-                for bin in [np.arange(interval[0]+5,interval[1]-5,100),np.arange(interval[0]+50+5,interval[1]-5,100)]:
+                for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
                     for i in range(len(bin)):
                         interval = bin[i:i+2]
                         geneNaming = geneInfo[3]+'|'+'-'.join(map(str,interval))#geneInfo[0:3]
                         f.write('Gene Name: ' + geneNaming + '\n')
+                        print '\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5)))
                         densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-5,x+5))(np.arange(interval[0]+5,interval[1]-5))),from_string=True)
                         try:
                             densitySNP = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['SNP'])).split('\n')))
