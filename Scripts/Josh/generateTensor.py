@@ -21,11 +21,11 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
             #indelTest = testTrain['indel'].intersect(geneBed,wa=True)
             #snpDensity = []
             #indelDensity = []
-            #print [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]
+            print [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]
             for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
                 for i in range(len(bin)-1):
                     interval = bin[i:i+2]
-                    geneNaming = geneInfo[3].strip('\n')+'|'+'-'.join(geneInfo[0:3])#geneInfo[0:3]
+                    geneNaming = geneInfo[3].strip('\n')+'|'+'-'.join([geneInfo[0]]+map(str,interval))#geneInfo[0:3]
                     #f.write('Gene Name: ' + geneNaming + '\n')
                     #try:
                     densityBedInt = BedTool('\n'.join(np.vectorize(lambda x: geneInfo[0]+'\t%d\t%d'%(x-10,x+10))(np.arange(interval[0]+10,interval[1]-10,5))),from_string=True)
@@ -52,7 +52,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
 trainBed = {'SNP':BedTool('train_SNP.bed'),'indel':BedTool('train_indel.bed')}
 testBed = {'SNP':BedTool('test_SNP.bed'),'indel':BedTool('test_indel.bed')}
 
-BedTool('human_genes.bed').sort().merge(c=4,o='distinct').saveas('human_genes_Check.bed')
+BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).sort().merge(c=4,o='distinct').saveas('human_genes_Check.bed')
 trainGenes = BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).sort().merge(c=4,o='distinct').saveas('trainGenes.bed')
 
 with open('trainGenes.bed','r') as f:
