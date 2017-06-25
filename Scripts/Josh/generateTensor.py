@@ -47,7 +47,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                             dataset['SNP'][geneNaming] = densitySNP
                             dataset['indel'][geneNaming] = densityIndel
                     print dataset
-                    dump(dataset['SNP'],open('testData.p','wb'))
+                    dump(dataset['SNP'],open('testData.p','w'))
                     exit()
                             #f.write(geneNaming+'\n')
             except:
