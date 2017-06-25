@@ -10,7 +10,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
     dataset = {'SNP':defaultdict(list),'indel':defaultdict(list)}
     #with open('out.txt','w') as f:
     for gene in genes:
-        if gene and gene.startswith('1'):
+        if gene and gene.startswith('1\t') or gene.startswith('22\t'):
             geneInfo = gene.split('\t')
             interval = map(int,geneInfo[1:3])
             #f.write('\t'.join([geneInfo[0]]+geneInfo[1:3])+'\n')
