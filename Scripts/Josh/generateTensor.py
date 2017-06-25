@@ -31,8 +31,8 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
 
 
 
-trainBed = {'SNP':BedTool('file'),'indel':BedTool('file')}
-testBed = {'SNP':BedTool('file'),'indel':BedTool('file')}
+trainBed = {'SNP':BedTool('test_SNP.bed'),'indel':BedTool('test_indel.bed')}
+testBed = {'SNP':BedTool('train_SNP.bed'),'indel':BedTool('train_indel.bed')}
 
 
 trainGenes = BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).saveas('trainGenes.bed')
