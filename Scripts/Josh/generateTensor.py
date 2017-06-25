@@ -52,8 +52,8 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
 trainBed = {'SNP':BedTool('train_SNP.bed'),'indel':BedTool('train_indel.bed')}
 testBed = {'SNP':BedTool('test_SNP.bed'),'indel':BedTool('test_indel.bed')}
 
-BedTool('human_genes.bed').sort().merge().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).saveas('human_genes_Check.bed')
-trainGenes = BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).saveas('trainGenes.bed')
+BedTool('human_genes.bed').sort().merge(c=4,o='distinct').saveas('human_genes_Check.bed')
+trainGenes = BedTool('human_genes.bed').sort().intersect(trainBed['SNP'].cat(trainBed['indel']),wa=True).sort().merge(c=4,o='distinct').saveas('trainGenes.bed')
 
 with open('trainGenes.bed','r') as f:
     genes = f.readlines()
