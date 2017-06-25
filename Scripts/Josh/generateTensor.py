@@ -13,7 +13,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
             if gene:
                 geneInfo = gene.split('\t')
                 interval = map(int,geneInfo[1:3])
-                print interval
+                print geneInfo[0]+interval
                 #bin1 = np.arange(interval[0],interval[1],100)
                 #bin2 = np.arange(interval[0]+50,interval[1],100)
                 #geneBed = BedTool(gene,from_string=True)
@@ -21,7 +21,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                 #indelTest = testTrain['indel'].intersect(geneBed,wa=True)
                 #snpDensity = []
                 #indelDensity = []
-                print [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]
+                #print [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]
                 for bin in [np.arange(interval[0],interval[1],100),np.arange(interval[0]+50,interval[1],100)]:
                     for i in range(len(bin)-1):
                         interval = bin[i:i+2]
@@ -39,6 +39,8 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                         densityIndel = np.vectorize(lambda line: float(line.split('\t')[-1]))(filter(None,str(densityBedInt.coverage(testTrain['indel'])).split('\n')))
                         dataset['SNP'][geneNaming] = densitySNP
                         dataset['indel'][geneNaming] = densityIndel
+                        print geneNaming
+    print 'FINISH 1'#testTrain['SNP'].head()
     return dataset
 
 
