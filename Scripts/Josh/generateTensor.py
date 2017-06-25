@@ -47,6 +47,7 @@ def genDataset(genes,testTrain): # second argument is test or train bed dictiona
                             dataset['indel'][geneNaming] = densityIndel
                     print dataset
                     dump(open('testData.p','wb'))
+                    exit()
                             #f.write(geneNaming+'\n')
             except:
                 pass
